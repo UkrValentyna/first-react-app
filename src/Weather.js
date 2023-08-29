@@ -22,7 +22,7 @@ export default function Weather() {
       <div className="Weather-data">
         <h2>
           Results for <strong>London</strong>{" "}
-          <span>
+          <span className="current-location">
             <a href="/" title="Current location">
               📌
             </a>
@@ -40,7 +40,7 @@ export default function Weather() {
                   />
                   <span className="float-left">
                     <h1>17</h1>
-                    <span className="units">°C | °F</span>
+                    <span className="units">°C |°F</span>
                   </span>
                 </span>
               </div>

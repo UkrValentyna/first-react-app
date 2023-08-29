@@ -1,10 +1,21 @@
 import "./App.css";
+import Bootstrap from "bootstrap";
 
 function App() {
   return (
     <div className="App">
-      <h1>React Weather App</h1>
-      <footer></footer>
+      <footer>
+        <small>
+          Coded by Valentyna
+          <a
+            href="https://github.com/UkrValentyna/first-react-app"
+            target="_blank"
+          >
+            {" "}
+            open-soursed on GitHub
+          </a>
+        </small>
+      </footer>
     </div>
   );
 }

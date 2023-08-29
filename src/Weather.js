@@ -1,36 +1,51 @@
 import React from "react";
+import "./Weather.css";
 
 export default function Weather() {
   return (
-    <div classname="Weather">
+    <div className="Weather">
       <form>
         <div className="row">
-          <div className="col-6">
+          <div className="col-9">
             <input
               type="search"
               placeholder="Enter a city.."
-              className="form-control"
+              autoFocus="on"
+              className="form-control "
             />
           </div>
-          <div className="col-6">
-            <input type="submit" value="Search" />
+          <div className="col-3">
+            <input type="submit" value="Search" className="h-100 w-100" />
           </div>
         </div>
       </form>
       <div className="Weather-data">
-        <h3> Results for London</h3>
+        <h2>
+          Results for <strong>London</strong>{" "}
+          <span>
+            <a href="/" title="Current location">
+              📌
+            </a>
+          </span>
+        </h2>
         <div className="row">
           <div className="col">
             <div className="row">
               <div className="col">
-                <img
-                  srs="https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png"
-                  alt="Clear sky"
-                />{" "}
-                <h1>17°C</h1>
+                <span className="clearfix">
+                  <img
+                    src="https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png"
+                    alt="Clear sky"
+                    className="float-left"
+                  />
+                  <span className="float-left">
+                    <h1>17</h1>
+                    <span className="units">°C | °F</span>
+                  </span>
+                </span>
               </div>
               <div className="col">
-                <ul>
+                <ul className="info-center">
                   <li>Precipitation: 2% </li>
                   <li>Humidity: 59% </li>
                   <li>Wind: 16 mph</li>
@@ -39,9 +54,9 @@ export default function Weather() {
             </div>
           </div>
           <div className="col">
-            <ul>
+            <ul className="info-right">
               <li>
-                <h3>Weather</h3>
+                <h5>Weather</h5>
               </li>
               <li>Tuesday 12:00</li>
               <li> Mostly cloudy</li>

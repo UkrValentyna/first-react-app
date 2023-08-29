@@ -3,7 +3,7 @@ import Weather from "./Weather";
 function App() {
   return (
     <div className="App">
-      <Weather />
+      <Weather city="London" />
       <footer>
         <small>
           Coded by Valentyna

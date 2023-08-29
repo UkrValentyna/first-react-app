@@ -1,15 +1,16 @@
 import "./App.css";
-import Bootstrap from "bootstrap";
-
+import Weather from "./Weather";
 function App() {
   return (
     <div className="App">
+      <Weather />
       <footer>
         <small>
           Coded by Valentyna
           <a
             href="https://github.com/UkrValentyna/first-react-app"
             target="_blank"
+            rel="noreferrer"
           >
             {" "}
             open-soursed on GitHub

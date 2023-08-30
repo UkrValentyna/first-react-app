@@ -2,22 +2,22 @@ import React, { useState } from "react";
 import "./Weather.css";
 import axios from "axios";
 import { Vortex } from "react-loader-spinner";
+import CurrentDate from "./CurrentDate";
 
 export default function Weather(props) {
   const [weatherData, setWeatherData] = useState({});
   const [loaded, setLoaded] = useState(false);
   function handleResponse(response) {
-    console.log(response.data);
-
     setWeatherData({
       name: response.data.name,
       temperature: Math.round(response.data.main.temp),
       wind: Math.round(response.data.wind.speed),
       humidity: Math.round(response.data.main.humidity),
-      date: "Monday 15:00",
+      date: new Date(props.data.dt * 1000),
       description: response.data.weather[0].description,
       imgUrl: "https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png",
     });
+
     setLoaded(true);
   }
 
@@ -82,7 +82,9 @@ export default function Weather(props) {
                 <li>
                   <h5>Weather</h5>
                 </li>
-                <li>{weatherData.date}</li>
+                <li>
+                  <CurrentDate date={setWeatherData.date} />
+                </li>
                 <li>{weatherData.description}</li>
               </ul>
             </div>
@@ -91,14 +93,14 @@ export default function Weather(props) {
       </div>
     );
   } else {
-    const apiKey = "5b9aaac066641215de6d72f73af7e9b5";
-    const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=London&appid=${apiKey}&units=metric`;
+    const apiKey = "a5981f2111d8a8bdc5dd764254581389";
+    const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${props.city}&appid=${apiKey}&units=metric`;
     axios.get(apiUrl).then(handleResponse);
     return (
       <Vortex
         visible={true}
-        height="100"
-        width="100"
+        height="200"
+        width="200"
         ariaLabel="vortex-loading"
         wrapperStyle={{}}
         wrapperClass="vortex-wrapper"

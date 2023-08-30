@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./Weather.css";
 import axios from "axios";
+import { Vortex } from "react-loader-spinner";
 
 export default function Weather(props) {
   const [weatherData, setWeatherData] = useState({});
@@ -44,7 +45,7 @@ export default function Weather(props) {
         </form>
         <div className="Weather-data">
           <h2>
-            Results for <strong>{weatherData.city}</strong>{" "}
+            Results for <strong>{weatherData.name}</strong>{" "}
             <span className="current-location">
               <a href="/" title="Current location">
                 📌
@@ -93,6 +94,16 @@ export default function Weather(props) {
     const apiKey = "5b9aaac066641215de6d72f73af7e9b5";
     const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=London&appid=${apiKey}&units=metric`;
     axios.get(apiUrl).then(handleResponse);
-    return "Loading...";
+    return (
+      <Vortex
+        visible={true}
+        height="100"
+        width="100"
+        ariaLabel="vortex-loading"
+        wrapperStyle={{}}
+        wrapperClass="vortex-wrapper"
+        colors={["red", "green", "blue", "yellow", "orange", "purple"]}
+      />
+    );
   }
 }
